@@ -12,9 +12,7 @@ document.getElementById('invia').addEventListener("click",() => {
     let forma = new Rettangolo();
     forma.draw();
     forma.calc();
-    console.log(forma);
-    
-    
+    console.log(forma);  
 
 });
 
@@ -41,20 +39,16 @@ class Rettangolo{
     
     constructor(){
         
-
-        //this.y = ( Math.pow( this.cA , 2) - Math.pow( (Math.pow(this.cA,2) - Math.pow(this.cB,2) + Math.pow(this.i,2) / 2*this.i),2) );
-
         this.x = (Math.pow(this.cA, 2) - Math.pow(this.cB, 2) + Math.pow(this.i,2) / (2*this.i));
 
         this.y = Math.sqrt( Math.pow( this.cA, 2) - Math.pow( this.x, 2) );
 
         console.log(this.x,this.y);
 
-
-
     }
 
     draw(){
+
         let canvas = document.getElementById("canvas");
         const ctx = canvas.getContext('2d');
         ctx.strokeStyle = 'red';
@@ -73,11 +67,7 @@ class Rettangolo{
 
         ctx.stroke();
         ctx.fill();
-        /*
-        var c=document.getElementById("canvas"); 
-        var d=c.toDataURL("image/png"); 
-        var w=window.open(d,'image from canvas'); 
-        */
+        
          
     }
 
