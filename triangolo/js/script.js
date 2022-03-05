@@ -18,7 +18,7 @@ document.getElementById('invia').addEventListener("click",() => {
 
 });
 
-class Rettangolo{
+class Rettangolo{ 
 
     x0 = 200;
     y0 = 400;
