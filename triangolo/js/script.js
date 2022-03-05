@@ -42,8 +42,12 @@ class Rettangolo{
     constructor(){
         
 
-        this.x = -(Math.pow(this.cB,2) - Math.pow(this.cA,2) - Math.pow(this.i,2))/(2*this.i);
-        this.y = Math.sqrt(( (Math.pow(this.cA, 2)*2*this.i) + Math.pow(this.cB, 2) - Math.pow(this.cA,2) - Math.pow(this.i,2) )/(2*this.i));
+        //this.y = ( Math.pow( this.cA , 2) - Math.pow( (Math.pow(this.cA,2) - Math.pow(this.cB,2) + Math.pow(this.i,2) / 2*this.i),2) );
+
+        this.x = (Math.pow(this.cA, 2) - Math.pow(this.cB, 2) + Math.pow(this.i,2) / (2*this.i));
+
+        this.y = Math.sqrt( Math.pow( this.cA, 2) - Math.pow( this.x, 2) );
+
         console.log(this.x,this.y);
 
 
@@ -51,11 +55,6 @@ class Rettangolo{
     }
 
     draw(){
-        
-        
-
-
-
         let canvas = document.getElementById("canvas");
         const ctx = canvas.getContext('2d');
         ctx.strokeStyle = 'red';
@@ -68,11 +67,9 @@ class Rettangolo{
         ctx.moveTo(this.x0, this.y0);
         console.log(this.x0, this.y0);
 
-        ctx.lineTo(this.i+this.x0, this.y0);
+        ctx.lineTo(this.i + this.x0 , this.y0);
         ctx.lineTo(this.x+this.x0, - this.y + this.y0);
-        ctx.lineTo(this.x0+2.5, this.y0);
-        
-        
+        ctx.lineTo(this.x0, this.y0);    
 
         ctx.stroke();
         ctx.fill();
