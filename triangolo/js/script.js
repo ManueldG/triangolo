@@ -45,25 +45,21 @@ class Rettangolo{
          */
         
         this.x = (Math.pow(this.i,2)-Math.pow(this.cB,2)+Math.pow(this.cA,2))/(2*this.i);
-        
-        this.y = Math.sqrt(
-
-            - Math.pow(
-                        ( 
-                            (this.i*2 - Math.pow( this.cB, 2) + Math.pow( this.cB, 2) ) 
-                        
-                            / 
-                            
-                            (2*this.i)
-                        )
-                    ,2)
+        let tmp = - Math.pow(
+            ( 
+                (Math.pow(this.i,2) - Math.pow( this.cB, 2) + Math.pow( this.cA, 2) ) 
+            
+                / 
                 
-                + Math.pow(this.cA,2)
-            );
+                (2*this.i)
+            )
+        ,2);
+
+        this.y = Math.sqrt( tmp + Math.pow(this.cA,2) );
 
 
 
-        console.log("x",this.x,"y",this.y);
+        console.log("x",this.x,"y",this.y,"tmp",tmp);
 
     }
 
