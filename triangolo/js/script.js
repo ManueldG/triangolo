@@ -1,34 +1,36 @@
 
 console.log(document);
-canvas=(document.getElementById("canvas"));
-canvas.addEventListener('click',(e)=>{
-    console.log(e);
-})
+canvas=(document.getElementById("canvas")); // identifico la "tela"
 
-
-
-document.getElementById('invia').addEventListener("click",() => {
-    console.log("via");
-    let forma = new Rettangolo();
+document.getElementById('invia').addEventListener("click",() => { // al click sul bottone istanzio la classe Triangolo()
+    
+    let forma = new Triangolo();
     forma.draw();
-    forma.calc();
-    console.log(forma);  
+    forma.calc(); 
 
 });
 
-class Rettangolo{ 
+class Triangolo{ 
 
-    x0 = 200;
+    // punto iniziale del path
+    x0 = 200; 
     y0 = 600;
+
+    //reperisco la misura dei lati del triangolo
     cA = document.forms["myForm"]["catetoA"].value;
     cB = document.forms["myForm"]["catetoB"].value;
     i = document.forms["myForm"]["ipotenusa"].value;
+
+    // parsing dei dati da String a Float
     cA = parseFloat(this.cA); 
     cB = parseFloat(this.cB);
     i = parseFloat(this.i);
+
+    //inizializzo variabili coordinate del vertice
     x = 0;
     y = 0;       
 
+    // riporto dei dati elaborati 
     calc(){
         document.getElementById("base").innerHTML =  this.i;
         document.getElementById("altezza").innerHTML = this.y;
@@ -36,7 +38,7 @@ class Rettangolo{
         document.getElementById("perimetro").innerHTML = this.cA + this.cB + this.i ;
     }
     
-    
+    // nel costruttore calcolo il vertice del triangolo 
     constructor(){
 
         /**
@@ -45,6 +47,8 @@ class Rettangolo{
          */
         
         this.x = (Math.pow(this.i,2)-Math.pow(this.cB,2)+Math.pow(this.cA,2))/(2*this.i);
+
+        // il passaggio intermedio mi aiuta a debuggare meglio
         let tmp = - Math.pow(
             ( 
                 (Math.pow(this.i,2) - Math.pow( this.cB, 2) + Math.pow( this.cA, 2) ) 
@@ -55,46 +59,35 @@ class Rettangolo{
             )
         ,2);
 
+
         this.y = Math.sqrt( tmp + Math.pow(this.cA,2) );
 
 
-
-        console.log("x",this.x,"y",this.y,"tmp",tmp);
-
     }
 
+    //disegno il triangolo 
     draw(){
 
-        let canvas = document.getElementById("canvas");
+        let canvas = document.getElementById("canvas"); // identifico canvas
         const ctx = canvas.getContext('2d');
-        ctx.strokeStyle = 'red';
-        ctx.fillStyle = "violet";
+        ctx.strokeStyle = 'red'; // imposto il colore del bordo 
+        ctx.fillStyle = "violet"; // imposto il colore del riempimento 
 
-        ctx.lineWidth = 5;
+        ctx.lineWidth = 5; // imposto lo spessore della linea 
        // set line stroke and line width
-        ctx.beginPath();  
-        ctx.clearRect(0, 0, canvas.width, canvas.height);  
-        ctx.moveTo(this.x0, this.y0);
+        ctx.beginPath();  //inizio il path 
+        ctx.clearRect(0, 0, canvas.width, canvas.height);   // pulisco l'area da disegni precedenti
+        ctx.moveTo(this.x0 + (this.i/2), this.y0); // per non rovinare l'angolo parto dalla metà di i 
         
 
-        ctx.lineTo(this.i + this.x0 , this.y0);
+        ctx.lineTo(this.i + this.x0 , this.y0); // 
         ctx.lineTo(this.x+this.x0, this.y0 - this.y);
         ctx.lineTo(this.x0, this.y0);    
+        ctx.lineTo(this.i/2 + this.x0 , this.y0); // e naturalmente termino il path alla metà di i
 
         ctx.stroke();
-        ctx.fill();
-        
+        ctx.fill();       
          
-    }
-
-    
+    }    
 
 }
-
-
-
-
-
-//<line x1="80" y1="80" x2="100" y2="20" stroke="black" />
-//document.getElementsByTagName("line")[0].attributes['x1'].value=100;
-
