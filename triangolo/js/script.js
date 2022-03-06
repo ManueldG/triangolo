@@ -32,27 +32,38 @@ class Rettangolo{
     calc(){
         document.getElementById("base").innerHTML =  this.i;
         document.getElementById("altezza").innerHTML = this.y;
-        document.getElementById("area").innerHTML =  this.i * this.y
+        document.getElementById("area").innerHTML =  (this.i * this.y) / 2
         document.getElementById("perimetro").innerHTML = this.cA + this.cB + this.i ;
     }
     
     
     constructor(){
+
+        /**
+         * x^2 + y^2 = cA 
+         * (x - i)^2 + y^2 = cB
+         */
         
         this.x = (Math.pow(this.i,2)-Math.pow(this.cB,2)+Math.pow(this.cA,2))/(2*this.i);
         
         this.y = Math.sqrt(
 
             - Math.pow(
-                    ( (Math.pow( this.i, 2)*2 - Math.pow( this.cB, 2) + Math.pow( this.cB, 2) ) / (2*this.i))
-                ,2)
+                        ( 
+                            (this.i*2 - Math.pow( this.cB, 2) + Math.pow( this.cB, 2) ) 
+                        
+                            / 
+                            
+                            (2*this.i)
+                        )
+                    ,2)
                 
                 + Math.pow(this.cA,2)
             );
 
 
 
-        console.log("x",this.x,"y",this.y,"i");
+        console.log("x",this.x,"y",this.y);
 
     }
 
@@ -68,10 +79,10 @@ class Rettangolo{
         ctx.beginPath();  
         ctx.clearRect(0, 0, canvas.width, canvas.height);  
         ctx.moveTo(this.x0, this.y0);
-        console.log(this.x0, this.y0);
+        
 
         ctx.lineTo(this.i + this.x0 , this.y0);
-        ctx.lineTo(this.x+this.x0, - this.y + this.y0);
+        ctx.lineTo(this.x+this.x0, this.y0 - this.y);
         ctx.lineTo(this.x0, this.y0);    
 
         ctx.stroke();
