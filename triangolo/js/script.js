@@ -19,7 +19,7 @@ document.getElementById('invia').addEventListener("click",() => {
 class Rettangolo{ 
 
     x0 = 200;
-    y0 = 400;
+    y0 = 600;
     cA = document.forms["myForm"]["catetoA"].value;
     cB = document.forms["myForm"]["catetoB"].value;
     i = document.forms["myForm"]["ipotenusa"].value;
@@ -39,11 +39,20 @@ class Rettangolo{
     
     constructor(){
         
-        this.x = (Math.pow(this.cA, 2) - Math.pow(this.cB, 2) + Math.pow(this.i,2) / (2*this.i));
+        this.x = (Math.pow(this.i,2)-Math.pow(this.cB,2)+Math.pow(this.cA,2))/(2*this.i);
+        
+        this.y = Math.sqrt(
 
-        this.y = Math.sqrt( Math.pow( this.cA, 2) - Math.pow( this.x, 2) );
+            - Math.pow(
+                    ( (Math.pow( this.i, 2)*2 - Math.pow( this.cB, 2) + Math.pow( this.cB, 2) ) / (2*this.i))
+                ,2)
+                
+                + Math.pow(this.cA,2)
+            );
 
-        console.log(this.x,this.y);
+
+
+        console.log("x",this.x,"y",this.y,"i");
 
     }
 
