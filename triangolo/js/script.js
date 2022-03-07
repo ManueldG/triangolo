@@ -10,6 +10,10 @@ document.getElementById('invia').addEventListener("click",() => { // al click su
 
 });
 
+/**
+ * @author Manuel della Gala 
+ * 
+ */
 class Triangolo{ 
 
     // punto iniziale del path
@@ -44,6 +48,8 @@ class Triangolo{
         /**
          * x^2 + y^2 = cA 
          * (x - i)^2 + y^2 = cB
+         * 
+         * metto a sistema le due equazioni di circonferenze  
          */
         
         this.x = (Math.pow(this.i,2)-Math.pow(this.cB,2)+Math.pow(this.cA,2))/(2*this.i);
