@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" href="http://casaalmada.hostinggratis.it/doc/css/reset.css">
 <link rel="stylesheet" href="css/style.css">
 
 <meta charset="UTF-8">
@@ -10,46 +9,72 @@
 <title>Triangolo</title>
 </head>
 <body>
-    <button id="invia">invia</button>
-    <form name="myForm"  method="post">
-        <input type="number" name="catetoA" id="catetoA" >
-        <input type="number" name="catetoB" id="catetoB" > 
-        <input type="number" name="ipotenusa" id="ipotenusa" >
-                
-    </form> 
-    <div class="testo">
-        base:
-    </div>
-    <div id="base">
 
-    </div>
-    <div class="testo">
-        altezza:
-    </div>
-    <div id="altezza">
+    <div class="calcolo">
 
-    </div>
-    <div class="testo">
-        Area:
-    </div>
-    <div id="area">
+        <div class="form">
 
-    </div>
-
-    <div class="testo">
-        Perimetro
-    </div>
-
-    <div id="perimetro">
-
-    </div>
-
-    
-    
-    
-    <canvas id="canvas" height="800" width="1000">
         
-    </canvas>
+            <form class="input" name="myForm"  method="post">
+    
+                <input type="number" name="catetoA" id="catetoA" >
+                <input type="number" name="catetoB" id="catetoB" > 
+                <input type="number" name="ipotenusa" id="ipotenusa" >
+                    
+            </form>
+            <button id="invia">invia</button> 
+    
+        </div>
+        <div class="result">
+            
+            <div class="value">
+               <div class="testo">
+                base:
+                </div>
+            
+                <div id="base" class="valore">
+            
+                </div> 
+            </div>
+            
+        
+        
+            <div class="value">
+                <div class="testo">
+                altezza:
+                </div>
+                <div id="altezza" class="valore">
+                </div>
+            </div>
+        
+        
+            <div class="value">
+                <div class="testo">
+                Area:
+                </div>
+                <div id="area" class="valore">
+                </div>
+            </div>
+        
+        
+            <div class="value">
+                <div class="testo">
+                Perimetro
+                </div>
+                <div id="perimetro" class="valore">
+                </div>
+            </div>
+            
+            <canvas id="canvas" height="800" width="1000">
+                
+            </canvas>
+            
+            </div>
+        
+        </div>
+        
+
+    
     
 
 <script src="./js/script.js"></script>

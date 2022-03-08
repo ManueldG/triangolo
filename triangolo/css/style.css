@@ -1,0 +1,23 @@
+
+.input {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: baseline;
+}
+
+.calcolo{
+    padding: 20px;
+}
+
+input{
+    margin: 5px 0;
+}
+
+.testo{
+    display: inline-block; 
+}
+
+.valore{
+    display: inline-block;
+}

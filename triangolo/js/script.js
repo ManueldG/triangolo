@@ -17,8 +17,8 @@ document.getElementById('invia').addEventListener("click",() => { // al click su
 class Triangolo{ 
 
     // punto iniziale del path
-    x0 = 200; 
-    y0 = 600;
+    x0 = 100; 
+    y0 = 200;
 
     //reperisco la misura dei lati del triangolo
     cA = document.forms["myForm"]["catetoA"].value;
@@ -67,7 +67,7 @@ class Triangolo{
 
 
         this.y = Math.sqrt( tmp + Math.pow(this.cA,2) );
-
+        this.y0 = this.y + 50;
 
     }
 
@@ -92,7 +92,10 @@ class Triangolo{
         ctx.lineTo(this.i/2 + this.x0 , this.y0); // e naturalmente termino il path alla metà di i
 
         ctx.stroke();
-        ctx.fill();       
+        ctx.fill();
+
+        console.log(ctx);
+         
          
     }    
 
